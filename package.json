@@ -1,0 +1,47 @@
+{
+	"name": "notes-cli",
+	"version": "0.0.0",
+	"description": "The only note taking command line app you will ever need.",
+	"keywords": ["notes-cli"],
+	"repository": "rocktimsaikia/notes-cli",
+	"funding": "https://github.com/sponsors/rocktimsaikia",
+	"license": "MIT",
+	"author": {
+		"name": "Rocktim Saikia",
+		"email": "rocktimthedev@gmail.com",
+		"url": "https://rocktimsaikia.dev"
+	},
+	"type": "module",
+	"bin": "./dist/index.cjs",
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup",
+		"lint": "biome lint .",
+		"lint:fix": "biome lint --write .",
+		"format": "biome format --write .",
+		"release": "pnpm build && np",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@types/node": "^20.17.12",
+		"tsup": "^8.3.5",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.3",
+		"vitest": "^2.1.8"
+	},
+	"packageManager": "pnpm@10.7.0",
+	"engines": {
+		"node": ">=18"
+	},
+	"tsup": {
+		"entry": ["cli/index.ts"],
+		"minify": true,
+		"clean": true,
+		"dts": true
+	},
+	"dependencies": {
+		"@bomb.sh/args": "^0.3.1",
+		"@clack/prompts": "^0.10.1"
+	}
+}
