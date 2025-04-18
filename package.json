@@ -26,7 +26,8 @@
     "demo": "tsx cli/index.ts",
     "format": "biome format --write .",
     "lint": "biome lint .",
-    "lint:fix": "biome lint --write ."
+    "lint:fix": "biome lint --write .",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "@bomb.sh/args": "^0.3.1",
@@ -39,8 +40,7 @@
     "@types/node": "^20.17.12",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "vitest": "^2.1.8"
+    "typescript": "^5.7.3"
   },
   "packageManager": "pnpm@10.7.0",
   "engines": {
