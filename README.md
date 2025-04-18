@@ -1,6 +1,7 @@
 # Notem
 
-A lightweight command-line tool for managing notes. Currently in development, it offers basic functionality and is easy to use.
+A lightweight command-line tool for managing notes. 
+> Still currently in development 🚧 but usable.
 
 ## Installation
 
