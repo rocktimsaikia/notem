@@ -3,6 +3,8 @@
 A lightweight command-line tool for managing notes. 
 > Still currently in development 🚧 but usable.
 
+[![npm](https://img.shields.io/npm/v/notem?color=brightgreen)](https://www.npmjs.com/package/notem)
+
 ## Installation
 
 Install globally via npm:
