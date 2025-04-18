@@ -1,11 +1,11 @@
 {
-  "name": "notes-cli",
+  "name": "notes-manager",
   "version": "0.0.0",
   "description": "The only note taking command line app you will ever need.",
   "keywords": [
-    "notes-cli"
+    "notes-manager"
   ],
-  "repository": "rocktimsaikia/notes-cli",
+  "repository": "rocktimsaikia/notes-manager",
   "funding": "https://github.com/sponsors/rocktimsaikia",
   "license": "MIT",
   "author": {
