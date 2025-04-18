@@ -27,8 +27,7 @@
     "format": "biome format --write .",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
-    "release": "pnpm build && np",
-    "test": "vitest"
+    "release": "pnpm build && np"
   },
   "dependencies": {
     "@bomb.sh/args": "^0.3.1",
