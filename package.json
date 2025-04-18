@@ -1,11 +1,11 @@
 {
-  "name": "notes-manager",
+  "name": "notem",
   "version": "0.0.0",
   "description": "Simple command line notes management.",
   "keywords": [
-    "notes-manager"
+    "notem"
   ],
-  "repository": "rocktimsaikia/notes-manager",
+  "repository": "rocktimsaikia/notem",
   "funding": "https://github.com/sponsors/rocktimsaikia",
   "license": "MIT",
   "author": {
@@ -15,7 +15,7 @@
   },
   "type": "module",
   "bin": {
-    "notes": "./dist/index.js"
+    "notem": "./dist/index.js"
   },
   "files": [
     "dist"

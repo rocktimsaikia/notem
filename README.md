@@ -1,5 +1,4 @@
-
-# Notes Manager
+# Notem
 
 A lightweight command-line tool for managing notes. Currently in development, it offers basic functionality and is easy to use.
 
@@ -7,29 +6,23 @@ A lightweight command-line tool for managing notes. Currently in development, it
 
 Install globally via npm:
 
-```bash
-npm install -g notes-manager
+```sh
+npm install -g notem
 ```
 
 ## Usage
 
 Run commands with the following syntax:
 
-```bash
-notes [command] [args]
+```sh
+notem [command] [args]
+
+# List all notes and open them interactively
+notem
+
+# Create a new note with an optional title
+notem new [title]
 ```
-
-### Commands
-
-1. **List Notes**: View all notes and open them interactively.
-   ```bash
-   notes
-   ```
-
-2. **Create Note**: Add a new note with an optional title.
-   ```bash
-   notes new [title]
-   ```
 
 ## License
 
