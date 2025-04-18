@@ -61,7 +61,7 @@ const formatDateTime = (date: string) =>
 		const firstArg = args._[0];
 
 		switch (firstArg) {
-			case "add":
+			case "new":
 				// Consider rest of args as note name
 				const rest_args = args._.slice(1).filter(Boolean);
 

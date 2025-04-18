@@ -1,7 +1,7 @@
 {
   "name": "notes-manager",
   "version": "0.0.0",
-  "description": "The only note taking command line app you will ever need.",
+  "description": "Simple command line notes management.",
   "keywords": [
     "notes-manager"
   ],
@@ -14,7 +14,9 @@
     "url": "https://rocktimsaikia.dev"
   },
   "type": "module",
-  "bin": "./dist/index.js",
+  "bin": {
+    "notes": "./dist/index.js"
+  },
   "files": [
     "dist"
   ],
