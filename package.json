@@ -1,7 +1,7 @@
 {
   "name": "notem",
   "version": "0.0.0",
-  "description": "Simple command line notes management.",
+  "description": "A lightweight command-line tool for managing notes.",
   "keywords": [
     "notem"
   ],
