@@ -27,7 +27,8 @@
     "format": "biome format --write .",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "release": "pnpm run build && np"
   },
   "dependencies": {
     "@bomb.sh/args": "^0.3.1",
@@ -39,11 +40,12 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/node": "^20.17.12",
+    "np": "^10.2.0",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   },
-  "packageManager": "pnpm@10.7.0",
+  "packageManager": "pnpm@10.8.1",
   "engines": {
     "node": ">=18"
   },
