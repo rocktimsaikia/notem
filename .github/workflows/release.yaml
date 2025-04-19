@@ -1,8 +1,10 @@
-name: Publish to npmjs
+name: Release
+
 on:
   release:
     types: [published]
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
