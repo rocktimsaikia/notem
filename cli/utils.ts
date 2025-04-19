@@ -17,6 +17,16 @@ export function createFolder(folderPath: string): void {
 	fs.mkdirSync(absolutePath, { recursive: true });
 }
 
+export function clearFolder(folderPath: string): void {
+	const absolutePath = path.resolve(folderPath);
+
+	// Remove the folder and its contents
+	fs.rmSync(absolutePath, { recursive: true, force: true });
+
+	// Recreate the empty folder
+	fs.mkdirSync(absolutePath, { recursive: true });
+}
+
 export function openFileInVim(filePath: string): void {
 	const absolutePath = path.resolve(filePath);
 	const vimProcess = child_process.spawn("vim", [absolutePath], {

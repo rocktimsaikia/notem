@@ -9,12 +9,18 @@ import inquirer from "inquirer";
 import Keyv from "keyv";
 import { KeyvFile } from "keyv-file";
 import packageJson from "../package.json";
-import { checkFolderExists, createFile, createFolder, openFileInVim } from "./utils";
+import {
+	checkFolderExists,
+	clearFolder,
+	createFile,
+	createFolder,
+	openFileInVim,
+} from "./utils";
 
 const argv = process.argv.slice(2);
 const args = parse(argv, {
 	alias: { h: "help", v: "version" },
-	boolean: ["help", "version"],
+	boolean: ["help", "version", "--delete-all"],
 	array: ["add", "remove"],
 });
 
@@ -52,9 +58,24 @@ const formatDateTime = (date: string) =>
         `);
 	}
 
-	if (args._.length === 0) {
-		const totalNotes = await keyv.get(totalNotesKey);
+	const totalNotes = await keyv.get<number>(totalNotesKey);
+	if (args["delete-all"]) {
+		const answer = await inquirer.prompt([
+			{
+				type: "confirm",
+				name: "confirm",
+				message: `You are about to delete all ${totalNotes} notes. Are you sure?`,
+			},
+		]);
+		if (!answer.confirm) {
+			return stdout.write("\nDeletion cancelled.\n");
+		}
+		await keyv.clear();
+		clearFolder(NOTES_DIR);
+		return stdout.write("\nAll notes deleted.\n");
+	}
 
+	if (args._.length === 0) {
 		if (!totalNotes) {
 			return stdout.write("No notes found.\n");
 		}
@@ -64,22 +85,28 @@ const formatDateTime = (date: string) =>
 			: [];
 		const allNotes = await keyv.getMany([...allNoteKeys]);
 
-		const answers = await inquirer.prompt([
-			{
-				type: "list",
-				name: "selectedNote",
-				message: "Enter the number to open a note:",
-				choices: allNotes.map((note, index) => ({
-					name: `${index + 1}. ${note.fileName} | ${formatDateTime(note.createdAt)}`,
-					value: `note_${JSON.stringify(index + 1)}`,
-				})),
-				loop: false,
-			},
-		]);
-
-		let selectedNote = answers.selectedNote;
-		selectedNote = await keyv.get(selectedNote);
-		openFileInVim(path.join(NOTES_DIR, selectedNote.fileName));
+		try {
+			const answers = await inquirer.prompt([
+				{
+					type: "list",
+					name: "selectedNote",
+					message: "Enter the number to open a note:",
+					choices: allNotes.map((note, index) => ({
+						name: `${index + 1}. ${note.fileName} | ${formatDateTime(note.createdAt)}`,
+						value: `note_${JSON.stringify(index + 1)}`,
+					})),
+					loop: false,
+				},
+			]);
+			let selectedNote = answers.selectedNote;
+			selectedNote = await keyv.get(selectedNote);
+			openFileInVim(path.join(NOTES_DIR, selectedNote.fileName));
+		} catch (error) {
+			if (String(error).includes("ExitPromptError")) {
+				stdout.write("\nGoodbye!\n");
+			}
+			return;
+		}
 	} else {
 		const firstArg = args._[0];
 
