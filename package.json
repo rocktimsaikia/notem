@@ -2,9 +2,7 @@
 	"name": "notem",
 	"version": "1.2.0",
 	"description": "A lightweight command-line tool for managing notes.",
-	"keywords": [
-		"notem"
-	],
+	"keywords": ["notem"],
 	"repository": "rocktimsaikia/notem",
 	"funding": "https://github.com/sponsors/rocktimsaikia",
 	"license": "MIT",
@@ -17,9 +15,7 @@
 	"bin": {
 		"notem": "./dist/index.js"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"clean": "rm -rf ~/.notes/*",
@@ -28,7 +24,8 @@
 		"lint": "biome lint .",
 		"lint:fix": "biome lint --write .",
 		"test": "echo \"Error: no test specified\" && exit 0",
-		"release": "pnpm run build && np"
+		"prepublishOnly": "pnpm run build",
+		"release": "np --no-publish && pnpm run build && np --no-cleanup"
 	},
 	"dependencies": {
 		"@bomb.sh/args": "^0.3.1",
@@ -50,9 +47,7 @@
 		"node": ">=18"
 	},
 	"tsup": {
-		"entry": [
-			"cli/index.ts"
-		],
+		"entry": ["cli/index.ts"],
 		"minify": true,
 		"clean": true,
 		"format": "esm"
