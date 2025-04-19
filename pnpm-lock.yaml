@@ -11,6 +11,9 @@ importers:
       '@bomb.sh/args':
         specifier: ^0.3.1
         version: 0.3.1
+      dedent:
+        specifier: ^1.5.3
+        version: 1.5.3
       inquirer:
         specifier: ^12.5.2
         version: 12.5.2(@types/node@20.17.30)
@@ -583,6 +586,14 @@ packages:
       supports-color: '*'
     peerDependenciesMeta:
       supports-color:
+        optional: true
+
+  dedent@1.5.3:
+    resolution: {integrity: sha512-NHQtfOOW68WD8lgypbLA5oT+Bt0xXJhiYvoR6SmmNXZfpzOGXwdKWmcwG8N7PwVVWV3eF/68nmD9BaJSsTBhyQ==}
+    peerDependencies:
+      babel-plugin-macros: ^3.1.0
+    peerDependenciesMeta:
+      babel-plugin-macros:
         optional: true
 
   eastasianwidth@0.2.0:
@@ -1328,6 +1339,8 @@ snapshots:
   debug@4.4.0:
     dependencies:
       ms: 2.1.3
+
+  dedent@1.5.3: {}
 
   eastasianwidth@0.2.0: {}
 

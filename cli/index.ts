@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { stdout } from "node:process";
 import { parse } from "@bomb.sh/args";
+import dedent from "dedent";
 import inquirer from "inquirer";
 import Keyv from "keyv";
 import { KeyvFile } from "keyv-file";
@@ -40,8 +41,24 @@ const formatDateTime = (date: string) =>
 		return stdout.write(`${packageJson.version}\n`);
 	}
 
+	if (args.help) {
+		return stdout.write(dedent`
+            Usage: notem [options]
+
+            Options:
+              -h, --help         display this help message
+              -v, --version      display version number
+              new                create a new note
+        `);
+	}
+
 	if (args._.length === 0) {
 		const totalNotes = await keyv.get(totalNotesKey);
+
+		if (!totalNotes) {
+			return stdout.write("No notes found.\n");
+		}
+
 		const allNoteKeys = totalNotes
 			? Array.from({ length: totalNotes }, (_, i) => `note_${i + 1}`)
 			: [];
