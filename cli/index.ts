@@ -51,10 +51,13 @@ const formatDateTime = (date: string) =>
 		return stdout.write(dedent`
             Usage: notem [options]
 
+            Commands:
+              notem new [note title]
+
             Options:
-              -h, --help         display this help message
-              -v, --version      display version number
-              new                create a new note
+              -h, --help         display this help message.
+              -v, --version      display version number.
+              --delete-all       delete all notes.
         `);
 	}
 

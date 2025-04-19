@@ -20,15 +20,19 @@ npm install -g notem
 Run commands with the following syntax:
 
 ```sh
-notem [command] [args]
+Usage: notem [options]
 
-# List all notes and open them interactively
-notem
+Commands:
+  notem new [note title]
 
-# Create a new note with an optional title
-notem new [title]
+Options:
+  -h, --help         display this help message.
+  -v, --version      display version number.
+  --delete-all       delete all notes.
 ```
+
+All the notes are stored in the `~/.notes` directory.
 
 ## License
 
-MIT License © [Rocktim Saikia](https://github.com/rocktim)
+MIT License &copy; [Rocktim Saikia](https://github.com/rocktimsaikia)
