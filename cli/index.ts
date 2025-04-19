@@ -2,10 +2,12 @@
 
 import os from "node:os";
 import path from "node:path";
+import { stdout } from "node:process";
 import { parse } from "@bomb.sh/args";
 import inquirer from "inquirer";
 import Keyv from "keyv";
 import { KeyvFile } from "keyv-file";
+import packageJson from "../package.json";
 import { checkFolderExists, createFile, createFolder, openFileInVim } from "./utils";
 
 const argv = process.argv.slice(2);
@@ -34,6 +36,10 @@ const formatDateTime = (date: string) =>
 	new Date(date).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" });
 
 (async () => {
+	if (args.version) {
+		return stdout.write(`${packageJson.version}\n`);
+	}
+
 	if (args._.length === 0) {
 		const totalNotes = await keyv.get(totalNotesKey);
 		const allNoteKeys = totalNotes
