@@ -3,7 +3,7 @@
 A lightweight command-line tool for managing notes. 
 > Still currently in development 🚧 but usable.
 
-[![npm](https://img.shields.io/npm/v/notem?color=brightgreen)](https://www.npmjs.com/package/notem)
+[![Publish to npmjs](https://github.com/rocktimsaikia/notem/actions/workflows/publish.yaml/badge.svg)](https://github.com/rocktimsaikia/notem/actions/workflows/publish.yaml) [![npm](https://img.shields.io/npm/v/notem?color=brightgreen)](https://www.npmjs.com/package/notem)
 
 [![notem-demo](https://github.com/user-attachments/assets/e7da7373-9327-4ee4-bd6e-8969342d472f)](https://github.com/user-attachments/assets/a6f82686-1cf9-4714-8852-edd35fa1a248)
 
