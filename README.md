@@ -7,6 +7,15 @@ A lightweight command-line tool for managing notes.
 
 [![notem-demo](https://github.com/user-attachments/assets/e7da7373-9327-4ee4-bd6e-8969342d472f)](https://github.com/user-attachments/assets/a6f82686-1cf9-4714-8852-edd35fa1a248)
 
+## Features
+
+Notem comes with clean and simple to terminal interface. Below is a list of features:
+
+- [x] Manage notes with simple commands. (`notem`, `notem new`, `notem delete`)
+- [x] Store notes in the `~/.notes` directory.
+- [ ] Open notes in the preferred text editor. (Currently only supports `vim`)
+- [ ] Configure behaviour with `.notem-config.json` file. (TODO)
+
 ## Installation
 
 Install globally via npm:
@@ -23,7 +32,9 @@ Run commands with the following syntax:
 Usage: notem [options]
 
 Commands:
-  notem new [note title]
+  notem [note index]         open a note
+  notem new [note title]     create a new note
+  notem delete [note index]  delete a note
 
 Options:
   -h, --help         display this help message.
