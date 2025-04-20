@@ -26,7 +26,11 @@ import dedent from "dedent";
 import matter from "gray-matter";
 import inquirer from "inquirer";
 import { titleCase } from "title-case";
+import updateNotifier from "update-notifier";
 import packageJson from "../package.json";
+
+// Update notifier
+updateNotifier({ pkg: packageJson }).notify();
 
 // Initialize arguments
 const argv = process.argv.slice(2);

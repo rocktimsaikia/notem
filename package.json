@@ -22,7 +22,9 @@
 	"bin": {
 		"notem": "./dist/cli.js"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup",
 		"clean": "rm -rf ~/.notes/*",
@@ -41,11 +43,13 @@
 		"gray-matter": "^4.0.3",
 		"inquirer": "^12.5.2",
 		"lowdb": "^7.0.1",
-		"title-case": "^4.3.2"
+		"title-case": "^4.3.2",
+		"update-notifier": "^7.3.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@types/node": "^20.17.12",
+		"@types/update-notifier": "^6.0.8",
 		"np": "^10.2.0",
 		"tsup": "^8.3.5",
 		"tsx": "^4.19.2",
@@ -56,7 +60,9 @@
 		"node": ">=18"
 	},
 	"tsup": {
-		"entry": ["src/cli.ts"],
+		"entry": [
+			"src/cli.ts"
+		],
 		"minify": true,
 		"clean": true,
 		"format": "esm"
