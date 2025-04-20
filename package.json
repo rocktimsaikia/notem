@@ -23,7 +23,7 @@
 	"scripts": {
 		"build": "tsup",
 		"clean": "rm -rf ~/.notes/*",
-		"demo": "tsx cli/index.ts",
+		"demo": "tsx src/cli.ts",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint --write .",
@@ -32,10 +32,13 @@
 	},
 	"dependencies": {
 		"@bomb.sh/args": "^0.3.1",
+		"chalk": "^5.4.1",
+		"cli-simple-table": "^1.1.1",
 		"dedent": "^1.5.3",
+		"gray-matter": "^4.0.3",
 		"inquirer": "^12.5.2",
-		"keyv": "^5.3.2",
-		"keyv-file": "^5.1.2"
+		"lowdb": "^7.0.1",
+		"title-case": "^4.3.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -51,7 +54,7 @@
 	},
 	"tsup": {
 		"entry": [
-			"cli/index.ts"
+			"src/cli.ts"
 		],
 		"minify": true,
 		"clean": true,
