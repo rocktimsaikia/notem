@@ -42,8 +42,6 @@ export function openFileInVim(filePath: string): void {
 	const editor =
 		which.sync("nvim", { nothrow: true }) || which.sync("vim", { nothrow: true });
 
-	console.log({ editor });
-
 	if (!editor) {
 		console.error(
 			"Neither Neovim (nvim) nor Vim (vim) is installed or available in PATH.",
