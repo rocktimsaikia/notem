@@ -1,6 +1,6 @@
 {
 	"name": "notem",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"description": "A lightweight command-line tool for managing notes.",
 	"keywords": [
 		"notem",
@@ -22,7 +22,9 @@
 	"bin": {
 		"notem": "./dist/cli.js"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup",
 		"clean": "rm -rf ~/.notes/*",
@@ -59,7 +61,9 @@
 		"node": ">=18"
 	},
 	"tsup": {
-		"entry": ["src/cli.ts"],
+		"entry": [
+			"src/cli.ts"
+		],
 		"minify": true,
 		"clean": true,
 		"format": "esm"
