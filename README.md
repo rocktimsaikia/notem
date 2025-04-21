@@ -13,7 +13,7 @@ Notem comes with clean and simple to terminal interface. Below is a list of feat
 
 - [x] Manage notes with simple commands. (`notem`, `notem new`, `notem delete`)
 - [x] Store notes in the `~/.notes` directory.
-- [ ] Open notes in the preferred text editor. (Currently only supports `vim`)
+- [ ] Open notes in the preferred text editor. (Currently only supports `nvim`, `vim`)
 - [ ] Configure behaviour with `.notem-config.json` file. (TODO)
 
 ## Installation
