@@ -127,7 +127,7 @@ const formatDateTime = (date: string) =>
 
 		switch (firstArg) {
 			// ADD A NEW NOTE
-			case "new":
+			case "new": {
 				// Consider rest of args as note name
 				const rest_args = args._.slice(1).filter(Boolean);
 
@@ -166,9 +166,10 @@ const formatDateTime = (date: string) =>
 				createFile(filePath, frontmatter);
 				openFileInVim(filePath);
 				break;
+			}
 
 			// DELETE A NOTE
-			case "delete":
+			case "delete": {
 				const targetIndex = args._[1];
 				if (typeof targetIndex !== "number") {
 					return stdout.write("Invalid note number.\n");
@@ -183,6 +184,7 @@ const formatDateTime = (date: string) =>
 
 				stdout.write(`Note "${deletedNote.title}" deleted.\n`);
 				break;
+			}
 
 			default:
 				stdout.write("Unknown command!\n");

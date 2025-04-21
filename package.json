@@ -22,16 +22,14 @@
 	"bin": {
 		"notem": "./dist/cli.js"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"clean": "rm -rf ~/.notes/*",
 		"demo": "tsx src/cli.ts",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
-		"lint:fix": "biome lint --write .",
+		"lint:fix": "biome lint --write --unsafe .",
 		"test": "echo \"Error: no test specified\" && exit 0",
 		"release": "np --no-publish"
 	},
@@ -44,7 +42,8 @@
 		"inquirer": "^12.5.2",
 		"lowdb": "^7.0.1",
 		"title-case": "^4.3.2",
-		"update-notifier": "^7.3.1"
+		"update-notifier": "^7.3.1",
+		"which": "^5.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -60,9 +59,7 @@
 		"node": ">=18"
 	},
 	"tsup": {
-		"entry": [
-			"src/cli.ts"
-		],
+		"entry": ["src/cli.ts"],
 		"minify": true,
 		"clean": true,
 		"format": "esm"

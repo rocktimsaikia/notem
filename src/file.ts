@@ -1,6 +1,7 @@
 import child_process from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import which from "which";
 
 // Create a new file
 export function createFile(filePath: string, content: string): void {
@@ -36,7 +37,21 @@ export function deleteFile(filePath: string): void {
 // Open a file in Vim
 export function openFileInVim(filePath: string): void {
 	const absolutePath = path.resolve(filePath);
-	const vimProcess = child_process.spawn("vim", [absolutePath], {
+
+	// Check if Neovim (nvim) is available, otherwise fall back to Vim
+	const editor =
+		which.sync("nvim", { nothrow: true }) || which.sync("vim", { nothrow: true });
+
+	console.log({ editor });
+
+	if (!editor) {
+		console.error(
+			"Neither Neovim (nvim) nor Vim (vim) is installed or available in PATH.",
+		);
+		process.exit(1);
+	}
+
+	const vimProcess = child_process.spawn(editor, [absolutePath], {
 		stdio: "inherit", // Inherit parent process's stdin, stdout, stderr
 	});
 
